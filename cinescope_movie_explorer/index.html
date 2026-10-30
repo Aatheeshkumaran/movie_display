@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover movies, explore details and build your personal watchlist.">
+  <title>CineScope — Find your next favourite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">C</span> cine<span>scope</span></a>
+    <nav class="nav-links">
+      <a class="nav-link active" href="#discover">Discover</a>
+      <button class="nav-link" id="watchlist-nav" type="button">My watchlist <span id="watchlist-count" class="count">0</span></button>
+    </nav>
+    <div class="profile"><span class="profile-dot"></span><span>Movie explorer</span></div>
+  </header>
+
+  <main>
+    <section class="hero" id="discover">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT MOVIE NIGHT STARTS HERE</p>
+        <h1>Stories worth<br><em>staying up for.</em></h1>
+        <p class="hero-description">Explore handpicked films, find your mood, and keep all the movies you want to watch in one place.</p>
+        <a href="#library" class="hero-button">Explore collection <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Decorative cinematic artwork">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-disc"><div class="disc-inner">C<span>✦</span></div></div>
+        <div class="hero-caption"><span class="caption-line"></span><span>THE ART OF GREAT STORIES</span></div>
+        <div class="floating-tag tag-top">NOW SHOWING <b>✦</b></div>
+        <div class="floating-tag tag-bottom">01 / 12 <span>COLLECTION</span></div>
+      </div>
+    </section>
+
+    <section class="library" id="library">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE COLLECTION</p><h2 id="section-title">Explore movies<span>.</span></h2></div>
+        <div class="result-count" id="result-count">12 titles</div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box"><span class="search-icon">⌕</span><input id="search-input" type="search" placeholder="Search titles, genres..." autocomplete="off"><kbd>⌘ K</kbd></label>
+        <div class="filters" id="filters">
+          <button class="filter active" data-genre="All" type="button">All films</button>
+          <button class="filter" data-genre="Sci-Fi" type="button">Sci-Fi</button>
+          <button class="filter" data-genre="Drama" type="button">Drama</button>
+          <button class="filter" data-genre="Action" type="button">Action</button>
+          <button class="filter" data-genre="Animation" type="button">Animation</button>
+        </div>
+        <select id="sort-select" class="sort-select" aria-label="Sort movies">
+          <option value="featured">Featured</option>
+          <option value="rating">Highest rated</option>
+          <option value="year">Newest first</option>
+          <option value="title">Title A–Z</option>
+        </select>
+      </div>
+
+      <div class="movie-grid" id="movie-grid"></div>
+      <div class="no-results" id="no-results" hidden><div class="no-results-icon">⌕</div><h3>No movies found</h3><p>Try another title or choose a different genre.</p><button id="reset-filters" type="button">Reset filters</button></div>
+    </section>
+
+    <section class="bottom-note">
+      <div><span class="note-star">✦</span><span>GOOD STORIES. GREAT COMPANY.</span></div>
+      <p>Your personal corner of cinema.</p>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="movie-modal" aria-hidden="true">
+    <section class="movie-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close movie details">×</button>
+      <div class="modal-poster" id="modal-poster"><span class="poster-symbol">✦</span><span class="poster-label">CINESCOPE PICK</span></div>
+      <div class="modal-content">
+        <p class="eyebrow" id="modal-kicker">MOVIE DETAILS</p>
+        <h2 id="modal-title">Movie title</h2>
+        <div class="modal-meta" id="modal-meta"></div>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+        <button class="modal-watchlist" id="modal-watchlist" type="button">＋ Add to watchlist</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer><span class="brand footer-brand"><span class="brand-icon">C</span> cine<span>scope</span></span><span>Made for movie lovers · 2026</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
